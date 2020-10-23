@@ -46,6 +46,7 @@ function player_pick {
 function check_for_win {
   for ELE in {0..2}
   do
+    #rows
     ROW=ELE*3
     if [[ ${BOARD[$ROW]} == $PLAY ]] && [[ ${BOARD[$ROW+1]} == $PLAY ]] && [[ ${BOARD[$ROW+2]} == $PLAY ]];
     then
@@ -53,6 +54,7 @@ function check_for_win {
       GAME_PROGRESS=0
     fi
   
+    #cols
     if [[ ${BOARD[$ROW]} == $PLAY ]] && [[ ${BOARD[$ROW+3]} == $PLAY ]] && [[ ${BOARD[$ROW+6]} == $PLAY ]];
     then
       echo "Wygrał ${PLAY}"
@@ -93,7 +95,7 @@ function check_for_draw {
   fi
 }
 
-
+#game start
 welcome
 sleep 5
 print_board
